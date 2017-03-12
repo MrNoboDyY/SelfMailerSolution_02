@@ -26,7 +26,7 @@ namespace SelfMailer.Library
 
                     //comment 
                     if (this.Changed != null)
-                        this.Changed(this, new EventArgs());
+                        this.Changed(this, new ChangedEventArgs(this.HasChanged));
                      /*avec la methode "Invoke" + "?" */
                     //this.Changed?.Invoke(this, new EventArgs());                    
                 }
@@ -34,6 +34,6 @@ namespace SelfMailer.Library
         }
         //comment
         /* evenement "Changed" declanché dès qu'un changement est verifié.*/
-        public event EventHandler Changed;
+        public event EventHandler<ChangedEventArgs> Changed;
     }
 }

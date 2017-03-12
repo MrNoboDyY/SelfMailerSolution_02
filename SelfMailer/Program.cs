@@ -17,7 +17,7 @@ namespace SelfMailer
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Forms.Main());//fromulaire de demarage sera le formulaire "Main"
 
             Library.Project P = new Library.Project();
 

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SelfMailer
+namespace SelfMailer.Library
 {
-   public class ProjectSettings
+   public class ProjectSettings : IReportChange
     {
         protected bool hasChanged;
 
@@ -26,7 +26,7 @@ namespace SelfMailer
 
                     //comment 
                     if (this.Changed != null)
-                        this.Changed(this, new EventArgs());
+                        this.Changed(this, new ChangedEventArgs(this.HasChanged));
                     /*avec la methode "Invoke" + "?" */
                     //this.Changed?.Invoke(this, new EventArgs());                    
                 }
@@ -34,7 +34,7 @@ namespace SelfMailer
         }
         //comment
         /* evenement "Changed" declanché dès qu'un changement est verifié.*/
-        public event EventHandler Changed;
+        public event EventHandler<ChangedEventArgs> Changed;
 
     }
 }

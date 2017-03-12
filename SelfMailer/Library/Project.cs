@@ -20,10 +20,10 @@ namespace SelfMailer.Library
             //comment
             /* initalisation + association a la methode "ChildChanged" */
             this.ProjectSettings = new ProjectSettings();
-            this.ProjectSettings.Changed += new EventHandler(ChildChanged);
+            this.ProjectSettings.Changed += new EventHandler<ChangedEventArgs>(ChildChanged);
 
             this.MailServerSettings = new MailServerSettings();
-            this.MailServerSettings.Changed += new EventHandler(ChildChanged);
+            this.MailServerSettings.Changed += new EventHandler<ChangedEventArgs>(ChildChanged);
         }
 
          # endregion
@@ -31,6 +31,9 @@ namespace SelfMailer.Library
         public ProjectSettings ProjectSettings { get; set; }
 
         public MailServerSettings MailServerSettings { get; set; }
+
+        public event EventHandler<ChangedEventArgs> Changed;
+
 
         private string path;
         private DataTable data = new DataTable();
@@ -162,11 +165,10 @@ namespace SelfMailer.Library
 # endregion
 
        
-        public event EventHandler Changed;
 
         //comment
 		/*  implementation dela methode */
-        public void ChildChanged(object sender , EventArgs e) {
+        public void ChildChanged(object sender , ChangedEventArgs e) {
             if (sender is IReportChange) {
                 IReportChange Child = (IReportChange)sender;
                 this.HasChanged = Child.HasChanged;
