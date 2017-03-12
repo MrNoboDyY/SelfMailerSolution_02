@@ -52,6 +52,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Library\ChangedEventArgs.cs" />
     <Compile Include="Library\IKey.cs" />
     <Compile Include="Library\IReportChange.cs" />
     <Compile Include="Library\IReportChildrenChange1.cs" />

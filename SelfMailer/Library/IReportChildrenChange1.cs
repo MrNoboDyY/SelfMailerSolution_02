@@ -9,7 +9,7 @@ namespace SelfMailer.Library
     interface IReportChildrenChange:IReportChange
     {
 
-        void ChildChanged(object sender, EventArgs e);
+        void ChildChanged(object sender, ChangedEventArgs e);
 
     }
 }

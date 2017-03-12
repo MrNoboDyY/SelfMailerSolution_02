@@ -13,6 +13,6 @@ namespace SelfMailer.Library
             get;
             set;
         }
-        event EventHandler Changed;
+       event EventHandler<ChangedEventArgs> Changed;
     }
 }

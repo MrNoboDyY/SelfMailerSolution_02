@@ -47,7 +47,7 @@ namespace SelfMailer.Library
                     hasChanged = value;
                     if (Changed != null) //this.Changed?.Invoke(this, EventArgs())
                     {
-                        Changed(this, new EventArgs());
+                        Changed(this, new ChangedEventArgs(HasChanged));
                     }
                     if (!value)
                     {
@@ -61,7 +61,7 @@ namespace SelfMailer.Library
         #endregion
 
         /* evenement "Changed" declanché dès qu'un changement est verifié.*/
-        public event EventHandler Changed;
+        public event EventHandler<ChangedEventArgs> Changed;
 
 
         //comment
@@ -72,7 +72,7 @@ namespace SelfMailer.Library
             children = new List<T>();
         }
 
-        public void ChildChanged(object sender, EventArgs e)
+        public void ChildChanged(object sender, ChangedEventArgs e)
         {
             if (Changed != null) //this.Changed?.Invoke(this , EventArgs())
                 Changed(sender, e);
@@ -86,7 +86,7 @@ namespace SelfMailer.Library
         {
             for (int i = 0; i < children.Count; i++)
             {
-                yield return children[i];//resultat en fonction de la denriere val retourné à chaque boucle
+                yield return children[i];//resultat en fonction de la derniere val retourné à chaque boucle
             }
             //throw new NotImplementedException();
         }
@@ -106,10 +106,10 @@ namespace SelfMailer.Library
         public void Add(T Child)
         {
             IKey childKey = Child;//instanciation d'une variable Key
-            if (childKey.Key == null)//verif si Key est null,avant l'ajout
+            if (Child.Key == null)//verif si Key/ La Clef  est null,avant l'ajout
             {
                 IReportChange child = Child;
-                child.Changed += new EventHandler(ChildChanged);
+                child.Changed += new EventHandler<ChangedEventArgs>(ChildChanged);
                 children.Add(Child);
             }
         }
