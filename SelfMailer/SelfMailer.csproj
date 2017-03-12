@@ -74,6 +74,9 @@
     <Compile Include="Library\Project.cs" />
     <Compile Include="Library\ProjectSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\MailServerSettings.resx">
+      <DependentUpon>MailServerSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>

@@ -16,5 +16,10 @@ namespace SelfMailer.Forms
         {
             InitializeComponent();
         }
+
+        private void MailServeurMenu_Click(object sender, EventArgs e)
+        {
+            new MailServerSettings().Show();
+        }
     }
 }

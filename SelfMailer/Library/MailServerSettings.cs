@@ -32,8 +32,94 @@ namespace SelfMailer.Library
                 }
             }
         }
+
+
+        private string fromName;
+        private string fromEmail;
+        private string host;
+        private string username;
+        private string password;
+
+        protected string FromName
+        {
+            get
+            {
+                return fromName;
+            }
+
+            set
+            {
+                if (fromName != value) { HasChanged = true; }//mise à jour
+                
+            }
+        }
+
+        protected string FromEmail
+        {
+            get
+            {
+                return fromEmail;
+            }
+
+            set
+            {
+                if (fromEmail != value) { HasChanged = true; }//mise à jour
+                
+            }
+        }
+
+        protected string Host
+        {
+            get
+            {
+                return host;
+            }
+
+            set
+            {
+                if (host != value) {host = value;HasChanged = true; }//mise à jour
+                
+            }
+        }
+
+        protected string Username
+        {
+            get
+            {
+                return username;
+            }
+
+            set
+            {
+                if (username != value) { username = value;HasChanged = true; }//mise à jour
+                
+            }
+        }
+
+        protected string Password
+        {
+            get
+            {
+                return password;
+            }
+
+            set
+            {
+                if (password != value) { password = value;HasChanged = true; }//mise à jour
+                
+            }
+        }
+
         //comment
         /* evenement "Changed" declanché dès qu'un changement est verifié.*/
         public event EventHandler<ChangedEventArgs> Changed;
+
+
+
+       
+
+
+
+
     }
 }
