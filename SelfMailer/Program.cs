@@ -8,26 +8,28 @@ namespace SelfMailer
 {
     static class Program
     {
+
+        public static Library.Project Project;
         /// <summary>
         /// Point d'entrée principal de l'application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            
+            Project = new Library.Project();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Forms.Main());//fromulaire de demarage sera le formulaire "Main"
 
-            Library.Project P = new Library.Project();
+            //Library.Project P = new Library.Project();
 
             //comment
             /* utilisation de la methode HasChanged de la class "MailServerSettings" */
-            P.MailServerSettings.HasChanged = true;
+            Project.MailServerSettings.HasChanged = true;
 
             //comment
             /* utilisation de la methode HasChanged de la class "ProjectSettings" */
-            P.ProjectSettings.HasChanged = true;
+            Project.ProjectSettings.HasChanged = true;
         }
     }
 }

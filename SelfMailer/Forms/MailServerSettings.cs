@@ -14,15 +14,16 @@ namespace SelfMailer.Forms
 {
     public partial class MailServerSettings : Form
     {
-
-        private string pattern = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\." +
-                                 @"[0-9]{1,3}\.[0-9]{1,3}\.)|"+
-                                 @"(([a-zA-Z0-9\-]+\.)+))" +
-                                 @"([a-zA-Z{2,4}|[0-9]{1,3})(\]?)$";
-
         public MailServerSettings()
         {
+            /*Restauration des données a l'ouverture*/
             InitializeComponent();
+            FromName.Text = Program.Project.MailServerSettings.FromName;
+            FromEmail.Text = Program.Project.MailServerSettings.FromEmail;
+            Host.Text = Program.Project.MailServerSettings.Host;
+            Username.Text = Program.Project.MailServerSettings.Username;
+            Password.Text = Program.Project.MailServerSettings.Password;
+
         }
 
         private void Valid_Click(object sender, EventArgs e)
@@ -30,21 +31,33 @@ namespace SelfMailer.Forms
             //MessageBox.Show(" Voulez-vous vraiment sauvegarder les données ????");
             if (string.IsNullOrWhiteSpace(Host.Text))//alert sur le champ Hôte si il est vide !!!
             {
-                MessageBox.Show("Le champ Hôte doit être complété.");
+                errorProvider.SetError(Host,"Le champ Hôte doit être complété.");
             }else if (ValidateChildren())
             {
+                //even de sauvegarde sur le bouton Valider
+                Program.Project.MailServerSettings.FromName = FromName.Text;
+                Program.Project.MailServerSettings.FromEmail = FromEmail.Text;
+                Program.Project.MailServerSettings.Host = Host.Text;
+                Program.Project.MailServerSettings.Username = Username.Text;
+                Program.Project.MailServerSettings.Password = Password.Text;
                 DialogResult = DialogResult.OK;
             }
 
         }
 
         private void FromEmail_Validating(object sender, CancelEventArgs e)
-        {//pattern de validation pour l'Email 
-            Regex reg = new Regex(pattern);
+        {
+             string pattern = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\." +
+                                 @"[0-9]{1,3}\.[0-9]{1,3}\.)|" +
+                                 @"(([a-zA-Z0-9\-]+\.)+))" +
+                                 @"([a-zA-Z{2,4}|[0-9]{1,3})(\]?)$";
+
+        //pattern de validation pour l'Email 
+        Regex reg = new Regex(pattern);
             if (!reg.IsMatch(this.FromEmail.Text))//s'il n'est pas correct
             {
                 //retourne la valeur saisie en precisant l'incoherence
-                MessageBox.Show("le format :  "+ FromEmail.Text +"  n'est pas correct ");
+                errorProvider.SetError(FromEmail,"le format :  "+ FromEmail.Text +"  n'est pas correct ");
                 e.Cancel = true;
             }
 

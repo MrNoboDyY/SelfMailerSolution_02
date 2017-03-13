@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SelfMailer.Library
 {
-  public class MailServerSettings : IReportChange
+    public class MailServerSettings : IReportChange
     {
         protected bool hasChanged;
 
@@ -17,7 +17,7 @@ namespace SelfMailer.Library
             {
                 //comment
                 /* verif si changement survenu*/
-                if(this.hasChanged != value)
+                if (this.hasChanged != value)
                 {
                     //comment
                     /* rangement de la nouvelle valeur "value"
@@ -27,7 +27,7 @@ namespace SelfMailer.Library
                     //comment 
                     if (this.Changed != null)
                         this.Changed(this, new ChangedEventArgs(this.HasChanged));
-                     /*avec la methode "Invoke" + "?" */
+                    /*avec la methode "Invoke" + "?" */
                     //this.Changed?.Invoke(this, new EventArgs());                    
                 }
             }
@@ -40,7 +40,7 @@ namespace SelfMailer.Library
         private string username;
         private string password;
 
-        protected string FromName
+        public string FromName
         {
             get
             {
@@ -50,11 +50,11 @@ namespace SelfMailer.Library
             set
             {
                 if (fromName != value) { HasChanged = true; }//mise à jour
-                
+
             }
         }
 
-        protected string FromEmail
+        public string FromEmail
         {
             get
             {
@@ -64,11 +64,11 @@ namespace SelfMailer.Library
             set
             {
                 if (fromEmail != value) { HasChanged = true; }//mise à jour
-                
+
             }
         }
 
-        protected string Host
+        public string Host
         {
             get
             {
@@ -77,12 +77,12 @@ namespace SelfMailer.Library
 
             set
             {
-                if (host != value) {host = value;HasChanged = true; }//mise à jour
-                
+                if (host != value) { host = value; HasChanged = true; }//mise à jour
+
             }
         }
 
-        protected string Username
+        public string Username
         {
             get
             {
@@ -91,12 +91,12 @@ namespace SelfMailer.Library
 
             set
             {
-                if (username != value) { username = value;HasChanged = true; }//mise à jour
-                
+                if (username != value) { username = value; HasChanged = true; }//mise à jour
+
             }
         }
 
-        protected string Password
+        public string Password
         {
             get
             {
@@ -105,8 +105,8 @@ namespace SelfMailer.Library
 
             set
             {
-                if (password != value) { password = value;HasChanged = true; }//mise à jour
-                
+                if (password != value) { password = value; HasChanged = true; }//mise à jour
+
             }
         }
 
@@ -116,7 +116,7 @@ namespace SelfMailer.Library
 
 
 
-       
+
 
 
 

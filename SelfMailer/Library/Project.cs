@@ -12,6 +12,7 @@ namespace SelfMailer.Library
 
     public class Project : IReportChildrenChange//IReportChange
     {
+
         //comment
         /* constructeur vide*/
         public Project()
@@ -19,11 +20,11 @@ namespace SelfMailer.Library
             #region ChildChanged
             //comment
             /* initalisation + association a la methode "ChildChanged" */
-            this.ProjectSettings = new ProjectSettings();
-            this.ProjectSettings.Changed += new EventHandler<ChangedEventArgs>(ChildChanged);
+            ProjectSettings = new ProjectSettings();
+            ProjectSettings.Changed += new EventHandler<ChangedEventArgs>(ChildChanged);
 
-            this.MailServerSettings = new MailServerSettings();
-            this.MailServerSettings.Changed += new EventHandler<ChangedEventArgs>(ChildChanged);
+            MailServerSettings = new MailServerSettings();
+            MailServerSettings.Changed += new EventHandler<ChangedEventArgs>(ChildChanged);
         }
 
          # endregion
@@ -124,8 +125,8 @@ namespace SelfMailer.Library
                  le nom du fichier ainsi que son chemin sont définis ,
                  le projet est enregistré et la propriété "HasChanged" est reinitialisée*/
                 if (!ShowDialog
-                    && !string.IsNullOrEmpty(this.Filename)
-                    && !string.IsNullOrEmpty(this.Path))
+                    && !string.IsNullOrEmpty(Filename)
+                    && !string.IsNullOrEmpty(Path))
                 {
                     //comment
                     /* sauvegarde des données non implementée*/
@@ -155,7 +156,7 @@ namespace SelfMailer.Library
 
                         //comment
                         /* sauvegarde des données non implémentée*/
-                        this.HasChanged = false;
+                        HasChanged = false;
                     }
                 }
 
@@ -171,8 +172,8 @@ namespace SelfMailer.Library
         public void ChildChanged(object sender , ChangedEventArgs e) {
             if (sender is IReportChange) {
                 IReportChange Child = (IReportChange)sender;
-                this.HasChanged = Child.HasChanged;
-                MessageBox.Show("Changement de l'objet de type " + Child.GetType().ToString());
+                HasChanged = Child.HasChanged;
+                //MessageBox.Show("Changement de l'objet de type " + Child.GetType().ToString());
             }
         }
     }

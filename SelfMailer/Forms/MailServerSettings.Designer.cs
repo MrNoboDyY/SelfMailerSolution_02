@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblFromName = new System.Windows.Forms.Label();
             this.lblFromEmail = new System.Windows.Forms.Label();
             this.lblHost = new System.Windows.Forms.Label();
@@ -40,6 +41,8 @@
             this.Password = new System.Windows.Forms.TextBox();
             this.Valid = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFromName
@@ -144,6 +147,10 @@
             this.Cancel.Text = "Annuler";
             this.Cancel.UseVisualStyleBackColor = true;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // MailServerSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,6 +173,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Paramètres du serveur mail";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +193,6 @@
         private System.Windows.Forms.TextBox Password;
         private System.Windows.Forms.Button Valid;
         private System.Windows.Forms.Button Cancel;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
