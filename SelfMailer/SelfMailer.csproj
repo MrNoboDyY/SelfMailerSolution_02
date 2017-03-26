@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\CustomControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\EmailTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MailProperties.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MailProperties.Designer.cs">
+      <DependentUpon>MailProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +86,9 @@
     <Compile Include="Library\Project.cs" />
     <Compile Include="Library\ProjectSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\MailProperties.resx">
+      <DependentUpon>MailProperties.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MailServerSettings.resx">
       <DependentUpon>MailServerSettings.cs</DependentUpon>
     </EmbeddedResource>

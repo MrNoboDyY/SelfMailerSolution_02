@@ -23,6 +23,8 @@ namespace SelfMailer
 
             //Library.Project P = new Library.Project();
 
+
+
             //comment
             /* utilisation de la methode HasChanged de la class "MailServerSettings" */
             Project.MailServerSettings.HasChanged = true;

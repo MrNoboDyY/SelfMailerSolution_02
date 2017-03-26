@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,13 +33,16 @@ namespace SelfMailer.Library
                 }
             }
         }
-
+        
 
         private string fromName;
         private string fromEmail;
         private string host;
         private string username;
         private string password;
+
+        
+
 
         public string FromName
         {
@@ -114,7 +118,7 @@ namespace SelfMailer.Library
         /* evenement "Changed" declanché dès qu'un changement est verifié.*/
         public event EventHandler<ChangedEventArgs> Changed;
 
-
+        
 
 
 

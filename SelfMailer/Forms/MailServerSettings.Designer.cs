@@ -35,13 +35,13 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.FromName = new System.Windows.Forms.TextBox();
-            this.FromEmail = new System.Windows.Forms.TextBox();
             this.Host = new System.Windows.Forms.TextBox();
             this.Username = new System.Windows.Forms.TextBox();
             this.Password = new System.Windows.Forms.TextBox();
             this.Valid = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.emailTextBox1 = new SelfMailer.Controls.EmailTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,14 +97,6 @@
             this.FromName.Size = new System.Drawing.Size(196, 20);
             this.FromName.TabIndex = 5;
             // 
-            // FromEmail
-            // 
-            this.FromEmail.Location = new System.Drawing.Point(77, 28);
-            this.FromEmail.Name = "FromEmail";
-            this.FromEmail.Size = new System.Drawing.Size(196, 20);
-            this.FromEmail.TabIndex = 6;
-            this.FromEmail.Validating += new System.ComponentModel.CancelEventHandler(this.FromEmail_Validating);
-            // 
             // Host
             // 
             this.Host.Location = new System.Drawing.Point(77, 54);
@@ -151,17 +143,24 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // emailTextBox1
+            // 
+            this.emailTextBox1.Location = new System.Drawing.Point(77, 28);
+            this.emailTextBox1.Name = "emailTextBox1";
+            this.emailTextBox1.Size = new System.Drawing.Size(196, 20);
+            this.emailTextBox1.TabIndex = 12;
+            // 
             // MailServerSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(339, 166);
+            this.Controls.Add(this.emailTextBox1);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.Valid);
             this.Controls.Add(this.Password);
             this.Controls.Add(this.Username);
             this.Controls.Add(this.Host);
-            this.Controls.Add(this.FromEmail);
             this.Controls.Add(this.FromName);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
@@ -187,12 +186,12 @@
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox FromName;
-        private System.Windows.Forms.TextBox FromEmail;
         private System.Windows.Forms.TextBox Host;
         private System.Windows.Forms.TextBox Username;
         private System.Windows.Forms.TextBox Password;
         private System.Windows.Forms.Button Valid;
         private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private Controls.EmailTextBox emailTextBox1;
     }
 }

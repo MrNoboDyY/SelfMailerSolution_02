@@ -14,12 +14,14 @@ namespace SelfMailer.Forms
 {
     public partial class MailServerSettings : Form
     {
+        
+
         public MailServerSettings()
         {
             /*Restauration des données a l'ouverture*/
             InitializeComponent();
             FromName.Text = Program.Project.MailServerSettings.FromName;
-            FromEmail.Text = Program.Project.MailServerSettings.FromEmail;
+            Text = Program.Project.MailServerSettings.FromEmail;
             Host.Text = Program.Project.MailServerSettings.Host;
             Username.Text = Program.Project.MailServerSettings.Username;
             Password.Text = Program.Project.MailServerSettings.Password;
@@ -36,7 +38,7 @@ namespace SelfMailer.Forms
             {
                 //even de sauvegarde sur le bouton Valider
                 Program.Project.MailServerSettings.FromName = FromName.Text;
-                Program.Project.MailServerSettings.FromEmail = FromEmail.Text;
+                Program.Project.MailServerSettings.FromEmail = Text;
                 Program.Project.MailServerSettings.Host = Host.Text;
                 Program.Project.MailServerSettings.Username = Username.Text;
                 Program.Project.MailServerSettings.Password = Password.Text;
@@ -45,22 +47,22 @@ namespace SelfMailer.Forms
 
         }
 
-        private void FromEmail_Validating(object sender, CancelEventArgs e)
-        {
-             string pattern = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\." +
-                                 @"[0-9]{1,3}\.[0-9]{1,3}\.)|" +
-                                 @"(([a-zA-Z0-9\-]+\.)+))" +
-                                 @"([a-zA-Z{2,4}|[0-9]{1,3})(\]?)$";
+        //private void FromEmail_Validating(object sender, CancelEventArgs e)
+        //{
+        //    string pattern = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\." +
+        //                        @"[0-9]{1,3}\.[0-9]{1,3}\.)|" +
+        //                        @"(([a-zA-Z0-9\-]+\.)+))" +
+        //                        @"([a-zA-Z{2,4}|[0-9]{1,3})(\]?)$";
 
-        //pattern de validation pour l'Email 
-        Regex reg = new Regex(pattern);
-            if (!reg.IsMatch(this.FromEmail.Text))//s'il n'est pas correct
-            {
-                //retourne la valeur saisie en precisant l'incoherence
-                errorProvider.SetError(FromEmail,"le format :  "+ FromEmail.Text +"  n'est pas correct ");
-                e.Cancel = true;
-            }
+        //    //pattern de validation pour l'Email 
+        //    Regex reg = new Regex(pattern);
+        //    if (!reg.IsMatch(this.FromEmail.Text))//s'il n'est pas correct
+        //    {
+        //        //retourne la valeur saisie en precisant l'incoherence
+        //        errorProvider.SetError(FromEmail, "le format :  " + FromEmail.Text + "  n'est pas correct ");
+        //        e.Cancel = true;
+        //    }
 
-        }
+        //}
     }
 }
